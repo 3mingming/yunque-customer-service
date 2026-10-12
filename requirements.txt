@@ -14,4 +14,3 @@ python-dotenv
 chromadb
 pydantic
 requests
-chardet

@@ -40,9 +40,9 @@ model_base_url=os.getenv('base_url')
 model=ChatOpenAI(model='qwen-plus',
                  api_key=model_api_key,
                  base_url=model_base_url)
-loader=DirectoryLoader("data/",glob='**/*.md',
+loader=DirectoryLoader("data/", glob='**/*.md',
                        loader_cls=TextLoader,
-                       loader_kwargs={"autodetect_encoding":True})
+                       loader_kwargs={"encoding": "utf-8"})
 docs=loader.load()
 text_splitter=RecursiveCharacterTextSplitter(chunk_size=500,chunk_overlap=50)
 splitts=text_splitter.split_documents(docs)
