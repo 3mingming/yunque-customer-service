@@ -1,0 +1,36 @@
+# 敏感文件
+.env
+my_models/env
+
+# 数据库
+checkpoint.db
+checkpoint.db-shm
+checkpoint.db-wal
+
+# 虚拟环境
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+
+# 无关文件
+notebook*.ipynb
+script*.py
+template.py
+tool.py
+lianxi.txt
+*.png
+langchain test.ipynb
+langchain练习.ipynb
+RAG检索.ipynb
+上下文记忆.ipynb
+图像分类数据集.ipynb
+测试1.ipynb
+线性回归的简洁实现.ipynb
+练习*.ipynb
+重点。误删。线性回归的实现ipynb
+Windows.py
+my_models/hook钩子函数.ipynb
