@@ -1,0 +1,16 @@
+streamlit
+langchain
+langchain-community
+langchain-classic
+langchain-core
+langchain-text-splitters
+langchain-chroma
+langchain-openai
+langchain-huggingface
+langgraph
+langgraph-checkpoint-sqlite
+dashscope
+python-dotenv
+chromadb
+pydantic
+requests
