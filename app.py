@@ -13,8 +13,8 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.tools import tool
 from langchain.agents import create_agent
-import sqlite3
-from langgraph.checkpoint.sqlite import SqliteSaver
+
+
 from datetime import datetime
 from langchain_classic.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
@@ -25,7 +25,9 @@ from dashscope import TextReRank
 
 
 
-load_dotenv("C:/Users/30683/PyCharmMiscProject/my_models/env",override=True)
+local_env = "C:/Users/30683/PyCharmMiscProject/my_models/env"
+if os.path.exists(local_env):
+    load_dotenv(local_env, override=True)
 api_key=os.getenv("embedding_api_key")
 base_url=os.getenv("embedding_base_url")
 embedding_model=init_embeddings(model='qwen3.7-text-embedding-flash',
@@ -47,8 +49,8 @@ splitts=text_splitter.split_documents(docs)
 store=Chroma.from_documents(documents=splitts,embedding=embedding_model)
 
 base_retriever=store.as_retriever(search_kwargs={"k":20})
-conn=sqlite3.connect('checkpoint.db',check_same_thread=False)
-memory=SqliteSaver(conn)
+from langgraph.checkpoint.memory import MemorySaver
+memory = MemorySaver()
 def format_docs(docs_with_source):
     formatted=[]
     for doc,source in docs_with_source:
